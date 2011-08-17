@@ -1,0 +1,30 @@
+<div class="span-25 last">
+  <h1>Create New lesson</h1>
+</div>
+ <div class="span-25 last lessonBorder">
+    <%= render 'form' %>
+ </div>
+<div class="span-13">
+  <br />
+  <h3> Add Content data</h3>
+  <div class="lessonBorder">
+    <%=render :template=>'lesson_pages/new'%>
+  </div>
+</div>
+<div class="span-12 last">
+  <br />
+  <h3> Add Questionnaire data</h3>
+  <div class="lessonBorder">
+    <%=render :template=>'lesson_pages_questionnaire/new'%>
+   </div>
+</div>
+<div class="span-25 last">
+<%= link_button_to "Create New Content", url_for(:action=>"new", :controller=>"content_infos")%> &nbsp; &nbsp;
+<%= link_button_to "Edit Content", url_for(:action=>"index",:controller=>"content_infos")%> &nbsp; &nbsp;
+<%=link_button_to "Create Questionnire",url_for(:action=>"new", :controller=>"questionnaires") %>&nbsp; &nbsp;
+<%=link_button_to "Edit Questionnire",url_for(:action=>"index", :controller=>"questionnaires") %>&nbsp; &nbsp;
+<%= link_button_to "Edit Lesson", url_for(:action=>"index", :controller=>"lessons")%> &nbsp; &nbsp;
+<%=link_button_to "Lesson Details page",url_for(:action=>"index", :controller=>"developers") %>
+</div>
+
+

@@ -1,0 +1,48 @@
+<div class="span-25 last" id="lessonhead3">
+  class <%=@classname%>, Lesson <%=@lesson_name%>, <br /> Instructer <%=@instructername%>, code <%= @classcode %>
+<br />
+  Total <%=@count%> lesson parts, <%=@questCount%> questionnaries <br />
+ </div>
+  <div class="span-25 last">
+      <div class="span-3">
+        &nbsp;
+      </div>
+      <div class="span-19" id="video">
+       <%if @lessonpagesbrowse[Integer(@current)].content_info_id %>
+        <%@contentid= @lessonpagesbrowse[Integer(@current)].content_info_id %>
+        <%=render 'data' %>
+        <% else %>
+        <%@questionnaireid= @lessonpagesbrowse[Integer(@current)].questionnaire_id %>
+        <%=render 'questionnaire'%>
+        <% end %>
+      </div>
+      <div class="span-19 last">
+      </div>
+      <div class="span-3 last">
+      &nbsp;
+      </div>
+</div>
+ <div class="span-25 last">
+   <div class="span-3">
+        &nbsp;
+   </div>
+   <div class="span-16">
+       &nbsp;&nbsp;&nbsp;<%=link_button_to "Back", url_for(:action=>"prevlesson",:lessonid=>"#{@lessonclass.lesson_id}",:current=>"#{@current}")%>
+    </div>
+    <div class="span-3">
+     <%=link_button_to "Next", url_for(:action=>"nextlesson",:lessonid=>"#{@lessonclass.lesson_id}",:current=>"#{@current}",:count=>"#{@count}")%>
+
+   </div>
+    <div class="span-3 last">
+    </div>
+   <div class="span-25 last">
+     <div class="span-10">
+       &nbsp;
+     </div>
+     <div class="span-5">
+       <%=link_button_to "Back to class view", url_for(:action=>"index",:controller=>"teacher_lesson_details",:id=>"#{@lessonclasslessonid}")%>
+     </div>
+     <div class="span-10 last">
+     </div>
+   </div>
+  </div>

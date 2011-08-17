@@ -1,0 +1,35 @@
+<!-- <div class="span-25 last">
+  <h1>Create new questionnaire</h1>
+</div>
+<div class="span-25 last lessonBorder">
+  <%#= render 'form' %>
+</div>
+<div class="span-13">
+  <br />
+  <h3> Add Questions</h3>
+    <div class="lessonBorder">
+      <%#=  render :template=>'quests/new'%>
+    </div>
+</div>
+
+<div class="span-12 last">
+  <br />
+  <h3> Add Choice Answers</h3>
+  <div class="lessonBorder">
+    <%#=  render :template=>'choices/new'%>
+   </div>
+</div>
+
+<div class="span-25 last">
+  <%#= link_to 'Add New Question',:controller=>"quests", :action=>"new" %> <br />
+  <%#=link_to "Back",{:action=>"new", :controller=>"lesson_pages_questionnaire"} %>
+  <%#= link_button_to "Back to New Lesson page", url_for(:action=>"new", :controller=>"lessons")%>
+</div> -->
+
+  
+<h1>New Questionaries</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', questionnaires_path %>
+  <%= link_button_to "Back to New Lesson page", url_for(:action=>"new", :controller=>"lessons")%>

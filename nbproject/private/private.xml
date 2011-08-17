@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110708092425_add_foreign_keystolessonpage.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110708093845_remove_datatypecolumn.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages/_form.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages/edit.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages/index.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages/new.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages/show.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages_questionnaire/_form.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages_questionnaire/edit.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages_questionnaire/index.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages_questionnaire/new.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lesson_pages_questionnaire/show.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/controllers/lesson_pages_controller.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/lessons/index.html.erb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/models/admin_people_lessons.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110628103432_add_role_to_user.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110624123154_devise_create_users.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110624133922_create_homes.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110628111958_create_administrators.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110628113835_create_teachers.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110628114223_create_students.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110628114951_create_content_developers.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110629132652_create_teacher_details.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110629162251_create_student_details.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110702072230_create_supports.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110706050850_create_lessons.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110706061746_add_name_to_users.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110706091115_remove_lesson_id_column.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110706115420_create_admin_people_lessons.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110706145459_remove_order_no.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110706173201_add_admin_person.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/db/migrate/20110708054547_create_quests.rb</file>
+        <file>file:/home/john/NetBeansProjects/Educrasy/app/views/admin_people/index.html.erb</file>
+    </open-files>
+</project-private>

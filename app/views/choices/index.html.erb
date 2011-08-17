@@ -1,0 +1,30 @@
+<h2>Listing  answers for question <%= @choice.quest.question  %> </h2>
+
+
+<table>
+  <tr>
+    <th>Choice Answers</th>
+    <th></th>
+  </tr>
+
+<% @choices.each do |choice| %>
+  <tr>
+    <td>
+        <%  if choice.answer %>
+        <span id="correctAnswer">
+          <%= choice.ChoiceAnswers %>
+        </span>
+        <% else %>
+        <%= choice.ChoiceAnswers %>
+        <% end%>
+    </td>
+    <td><%= link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Choice', new_choice_path %>
+<%=link_button_to "Create New Choice",url_for(:action=>"new",:controller=>"questionnaires")%>
+<%=link_button_to "Back",url_for(:back)%>

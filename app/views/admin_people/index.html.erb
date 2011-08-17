@@ -1,0 +1,33 @@
+<%#=link_to "Home",{:action=>"index", :controller=>"homes"} %>
+<h3> welcome <%=current_user.name %></h3>
+
+<div class="span-14">
+  <br />
+  <h3>Assign Roles </h3>
+  <div class="lessonBorder">
+    <%=render :template=>'roles/new'%>
+  </div>
+</div>
+
+<div class="span-9 last" id="rolesButtonPosition">
+
+<%#=link_to "Lesson Details",{:action=>'index',:controller=>"developers"}%>
+<%=link_button_to "Lesson Details Page",url_for(:action=>"index", :controller=>"developers") %> <br /><br /><br />
+<%=link_button_to "Show Role Details",url_for(:action=>"index", :controller=>"roles") %> <br /><br /><br />
+<%=link_button_to "Add Class Details",url_for(:action=>"new", :controller=>"class_details") %>
+
+<%#=link_to "Add Content developers/Administrators",{:action=>'new',:controller=>"roles"}%>
+
+</div>
+
+<div class="span-14">
+  <br />
+  <h3>Assign student to class </h3>
+  <div class="lessonBorder">
+    <%=render :template=>'student_details/new'%>
+  </div>
+</div>
+<div class="span-9 last">
+  <br /><br /><br /><br />
+<%=link_button_to "Show Student Class Details",url_for(:action=>"index", :controller=>"student_details") %>
+</div>

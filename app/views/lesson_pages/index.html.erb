@@ -1,0 +1,29 @@
+<h1>Listing lesson_pages</h1>
+
+<table>
+  <tr>
+    <th>Lessonid</th>
+    <th>Orderno</th>
+    <th>Datasource</th>
+    <th>Datatype</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%=link_to "Questionnaire Page",{:action=>"index", :controller=>"questionnaires"} %>
+<% @lesson_pages.each do |lesson_page| %>
+  <tr>
+    <td><%= lesson_page.lesson_id %></td>
+    
+    
+    
+    <td><%= link_to 'Show', lesson_page %></td>
+    <td><%= link_to 'Edit', edit_lesson_page_path(lesson_page) %></td>
+    <td><%= link_to 'Destroy', lesson_page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lesson page', new_lesson_page_path %>

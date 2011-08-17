@@ -1,0 +1,20 @@
+
+<%= form_for(@quest) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label "Select Questionnaire Name" %><br />
+    <%= f.select(:questionnaire_id, Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
+  </div>
+  <div class="field">
+    <%= f.label "Question" %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label "Select Image" %><br />
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create Question"%>
+  </div>
+<% end %>

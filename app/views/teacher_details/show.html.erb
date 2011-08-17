@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lessionid:</b>
+  <%= @teacher_detail.lessionID %>
+</p>
+
+<p>
+  <b>Classname:</b>
+  <%= @teacher_detail.classname %>
+</p>
+
+<p>
+  <b>Classid:</b>
+  <%= @teacher_detail.classID %>
+</p>
+
+
+<%= link_to 'Edit', edit_teacher_detail_path(@teacher_detail) %> |
+<%= link_to 'Back', teacher_details_path %>

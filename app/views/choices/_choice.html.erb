@@ -1,0 +1,9 @@
+<%= fields_for "quest[choices_attributes][]", choice do |i| %>
+  <li>
+    <%= link_to("Remove", "#delete", :class => "delete-choice") %>
+    <%= i.label :ChoiceAnswers, "Full Name" %>
+    <%= i.text_field :ChoiceAnswers %>
+    <%#= i.label :email, "Email Address" %>
+    <%#= i.text_field :email %>
+  </li>
+<% end %>

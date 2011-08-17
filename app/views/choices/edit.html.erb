@@ -1,0 +1,8 @@
+<h1>Editing choice</h1>
+
+<%= render 'form' %>
+
+<%#= link_to 'Show', @choice %>
+<%#= link_to 'Back', choices_path %>
+<%=link_button_to 'Question Details',url_for(:action=>"show",:controller=>"questionnaires",:id=>"#{@choice.quest.questionnaire.id}") %>
+<%=link_button_to 'List Choices',url_for(:action=>"index",:controller=>"choices",:id=>"#{@choice.quest_id}") %>

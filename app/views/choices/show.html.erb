@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>Choiceanswers:</b>
+  <%= @choice.ChoiceAnswers %>
+</p>
+
+
+<%= link_to 'Edit', edit_choice_path(@choice) %> <br />
+
+<%=link_to " Back to adding Choice Answers",{:action=>"new", :controller=>"choices"} %>

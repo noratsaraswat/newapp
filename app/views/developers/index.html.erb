@@ -1,0 +1,86 @@
+
+<div class="span-24 last">
+<h3> welcome <%=current_user.name %></h3>
+<%= link_button_to "Create/Edit Lesson", url_for(:action=>"new",:controller=>"lessons")%> &nbsp;&nbsp;
+<%#= link_button_to "Create New Data Content", url_for(:action=>"new", :controller=>"lesson_pages")%> &nbsp;&nbsp;
+<%#= link_button_to "Create New Questionnire", url_for(:action=>"new", :controller=>"lesson_pages_questionnaire")%>
+<br />
+<br />
+</div>
+<%results=Developer.find(:all, :conditions => { :userid=>current_user.id})  %>
+
+<div class="lessonhead1">
+<h2> Lessons created by  <%= current_user.name %></h2>
+</div>
+<br />
+<br />
+<div class="lessonhead2">
+<%if results.size==0 %>
+Empty List
+<%end%>
+</div>
+<%a=0%>
+<% results.each do |admin| %>
+<% admin.lessons.each do |lesson| %>
+<br />
+      <%a=a+1%>
+
+<div class="lessonName"> <h3><%=a%> &nbsp;&nbsp;<%=link_to"#{lesson.lessonName}",{:action=>"show",:controller=>"lessons",:id=>"#{lesson.id}"} %></h3></div><span class="contentSize"> contents-></span>
+        <%b=0%>
+        <% lesson.lesson_pages.each do |lessonpage| %> &nbsp; &nbsp;
+            <span class="contentSize2">
+              <%=b=b+1%> &nbsp;&nbsp;
+                <% if  lessonpage.content_info_id %>
+               <%=link_to "#{lessonpage.content_info.name}",{:action=>"show",:controller=>"content_infos",:id=>"#{lessonpage.content_info_id}"},:class=>"contentInfoColor" %>
+                <% elsif lessonpage.questionnaire_id %>
+                <%= link_to "#{lessonpage.questionnaire.questionnaireName}",{:action=>"show",:controller=>"questionnaires",:id=>"#{lessonpage.questionnaire_id}"},:class=>"questionnaireColor" %>
+                 <% end %>
+             </span>
+           <% end %>
+               <br />
+  <% end %>
+<% end %>
+<br />
+<br />
+<div class="lessonhead1">
+<h2> Lessons created by Others</h2>
+</div>
+<br />
+<br />
+<%# others=Developer.find_by_sql("select *from developers where userID!=#{current_user.id}")  %>
+<%others=Developer.where("userid != ?",current_user.id)  %>
+<div class="lessonhead2">
+<%if others.size==0 %>
+Empty List
+<%end%>
+</div>
+  <%b=0%>
+  <% others.each do |admin| %>
+  <% admin.lessons.each do |lesson| %>
+<br />
+  <%b=b+1%>
+<div class="lessonName"> <h3><%=b%> &nbsp;&nbsp;<%=lesson.lessonName %></h3></div><span class="contentSize"> contents -></span>
+            <%a=0%>
+           <% lesson.lesson_pages.each do |lessonpage| %>&nbsp; &nbsp;
+           <span class="contentSize2">
+            <%=a=a+1%> &nbsp;&nbsp;
+                <% if  lessonpage.content_info_id %>
+                <%=link_to "#{lessonpage.content_info.name}",{:action=>"show",:controller=>"content_infos",:id=>"#{lessonpage.content_info_id}"},:class=>"contentInfoColor" %>
+                <% elsif lessonpage.questionnaire_id %>
+                <%= link_to "#{lessonpage.questionnaire.questionnaireName}",{:action=>"show",:controller=>"questionnaires",:id=>"#{lessonpage.questionnaire_id}"},:class=>"questionnaireColor" %>
+                 <% end %>
+             </span>
+           <% end %>
+               <br />
+  <% end %>
+<% end %>
+<br />
+<br />
+<span class="contentInfoColor">* Content Data</span> &nbsp; &nbsp; <span class="questionnaireColor"> *Questionnaire</span>
+<br />
+<br />
+<%= link_button_to "Create/Edit Lesson", url_for(:action=>"new",:controller=>"lessons")%> &nbsp; &nbsp;
+
+<%= link_button_to "Back To Admin Page", admin_people_path %> &nbsp; &nbsp;
+<%#= link_button_to "Create New Data Content", url_for(:action=>"new", :controller=>"lesson_pages")%>&nbsp; &nbsp;
+<%#= link_button_to "Create New Questionnire", url_for(:action=>"new", :controller=>"lesson_pages_questionnaire")%>

@@ -1,0 +1,135 @@
+
+<%  if @lessonclass %>
+<div class="span-25 last" id="lessonhead3">
+  class <%=@classname%>, Lesson <%=@lesson_name%>, <br /> Instructer <%=@instructername%>, code <%= @classcode %>
+<br />
+</div>
+
+<div class="span-25 last">
+    <%  verticalright=Array.new %>
+    <%  verticalwrong=Array.new %>
+  <table>
+    <tr>
+      <th>Students</th>
+      <th>Questions</th>
+    </tr>
+    <tr>
+      <td></td>
+      <%@lessonquestions.each do | quest|%>
+      <%@ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}") %>
+      <%@size=@ques.size%>
+      <%num=1%>
+      <td>
+        <%=quest.questionnaire.questionnaireName %>
+      </td>
+      <%  while num<=@size %>
+      <td>
+      <%=num%>
+      </td>
+      <%num=num+1%>
+      <%end%>
+      <% end %>
+      <td>
+        Performance
+      </td>
+    </tr>
+    <% @studentdetails.each do | student | %>
+    <% wrong=0 %>
+    <% cor=0%>
+    <% m=0 %>
+    <tr>
+      <td>
+        <%=student.user.name %>
+     </td>
+        <%@lessonquestions.each do | quest|%>
+             <td></td>
+            <%@ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}") %>
+            <%@ques.each do | que | %>
+
+                     <%@correctanwers=Choice.where(:quest_id=>"#{que.id}",:answer=>true)%>
+                     <%#@correctanwerssize=@correctanwers.size%>
+                     <%@answers=Answer.where(:user_id=>"#{student.user_id}",:questionnaire_id=>"#{que.questionnaire_id}")%>
+                         <% if @answers.empty? %>
+                            <td> -</td>
+                        <%else%>
+                                <% corr=0 %>
+                                    <%@correctanwers.each do |correct |%>
+                                              <%@answers.each do | ans|%>
+                                                <% if correct.id==ans.choice_id %>
+                                                  <%corr=corr+1%>
+                                                <% end %>
+                                              <%end%>
+                                    <% end %>
+                                    <% if corr==Integer(@correctanwers.size)%>
+                                      <td> &radic;</td>
+                                      <%cor=cor+1%>
+                                      <% if verticalright[m]%>
+                                      <% else %>
+                                      <% verticalright[m]=0 %>
+                                      <% end %>
+                                       <%verticalright[m]=Integer(verticalright[m])+1%>
+                                    <%else%>
+                                       <td> &Chi;</td>
+                                       <% wrong=wrong+1 %>
+                                       <% if verticalwrong[m]%>
+                                      <% else %>
+                                      <% verticalwrong[m]=0 %>
+                                      <% end %>
+                                       <%verticalwrong[m]=Integer(verticalwrong[m])+1%>
+                                    <%end%>
+                                       <%m=m+1%>
+                                     <%end %>
+             <%end%>
+        <% end %>
+      <td>
+        <% if cor> 0 %>
+        <%=(cor*100)/(cor+wrong)%>&nbsp; &permil;
+        <%elsif cor==0 and wrong==0%>
+        -
+        <%elsif cor==0%>
+        0&nbsp; &permil;
+        <% end %>
+      </td>
+    </tr>
+    <%end %>
+    <tr>
+      <td>
+        Performance
+      </td>
+      <%i=0%>
+      <%@lessonquestions.each do | quest|%>
+      <%@ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}") %>
+      <%@size=@ques.size%>
+      <%num=1%>
+      <td>
+        &nbsp;
+      </td>
+      <%  while num<=@size %>
+      <td>
+        <%  if ((verticalright[i]).to_i) > 0 %>
+        <%=((verticalright[i]).to_i*100)/((verticalright[i]).to_i + (verticalwrong[i]).to_i) %>&nbsp; &permil;
+        <% elsif (verticalright[i]).to_i==0 and (verticalwrong[i]).to_i==0%>
+        -
+        <%elsif (verticalright[i]).to_i==0%>
+         0&nbsp; &permil;
+        <% end %>
+      </td>
+      <%num=num+1%>
+      <%i=i+1%>
+      <%end%>
+      <%end%>
+    </tr>
+    </table>
+</div>
+<div class="span-20">
+  &nbsp;
+</div>
+<div class="span-5 last">
+  <%#=link_button_to "Export", url_for(:action=>"export",:lesson_id=>@lessonid,:class_detail_id=>@classdetailsid)%>
+</div>
+<div class="span-25 last">
+  - &nbsp; Not Attented,  &radic; &nbsp; Correct Answer, &Chi; &nbsp; wrong Answer
+</div>
+<% else %>
+<h2> No data</h2>
+<% end %>

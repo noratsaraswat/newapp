@@ -1,0 +1,147 @@
+/* 
+    Document   : educrasy
+    Created on : 01-Jul-2011, 14:42:12
+    Author     : john
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#header {
+
+    text-align: center;
+    font-size: 28px;
+    height: 80px;
+
+}
+
+#header2 {
+    font-size: 20px;
+    height: 100px;
+
+}
+
+#logo {
+    height: 70px;
+}
+.textsize {
+    font-size: 20px;
+}
+#mainlinks {
+    font-size: 25px;
+    height: 80px;
+}
+#video {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 150px;
+    overflow: auto;
+}
+
+#signup {
+    text-align: center;
+}
+#contact {
+    padding-top: 30px;
+}
+
+.lessonhead1 {
+    border-bottom-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.lessonhead1 h2 {
+    padding-bottom:0px;
+    border-bottom: 0px;
+    margin-bottom: 0px;
+}
+.contentSize {
+ font-size: 15px;
+}
+.lessonName h3 {
+    padding-bottom:0px;
+}
+
+.contentSize2 {
+    font-size: 18px;
+}
+.contentInfoColor {
+    color: green!important ;
+}
+.questionnaireColor {
+  color: blue!important;
+}
+.lessonBorder {
+    border-width: 2px;
+    border-style: solid;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+#questionnaireHead {
+    text-align: center;
+    font-size: 20px;
+}
+.questionnaireHead2 {
+    text-align:left;
+    font-size: 14px;
+}
+.questionnaireHead3 {
+    font-size: 14px;
+}
+.contentInfoHead {
+    text-align: center;
+    font-size: 20px;
+}
+#rolesButtonPosition {
+    position: relative;
+    top: 60px;
+    left: 20px;
+}
+#correctAnswer {
+    color: green;
+}
+.teacherhead1 {
+    text-align: center;
+    font-size: 18px;
+}
+
+.teacherhead2 {
+    font-size: 18px;
+}
+#info {
+    font-size: 20px;
+}
+#valiedCode {
+    font-size: 18px;
+}
+
+#lessonhead3 {
+    font-size: 24px;
+    text-align:center;
+}
+#video {
+    border-width: 2px;
+    height: 300px;
+}
+#videoGap {
+    height: 250px;
+}
+.questionImage {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 150px;
+
+}

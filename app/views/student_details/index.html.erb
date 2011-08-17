@@ -1,0 +1,19 @@
+<h1>Listing Student Class Details</h1>
+<table>
+  <tr>
+    <th>Studen Name</th>
+    <th>Class Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @student_details.each do |student_detail| %>
+  <tr>
+    <td><%= student_detail.user.name %></td>
+    <td><%= student_detail.class_detail.classname %></td>
+    <td><%= link_to 'Edit', edit_student_detail_path(student_detail) %></td>
+    <td><%= link_to 'Destroy', student_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_button_to "Back to Admin page", url_for(:action=>"index", :controller=>"admin_people")%>

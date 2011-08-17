@@ -1,0 +1,45 @@
+<div class="span-25 last teacherhead1">
+Class View
+</div>
+<div class="span-15 teacherhead1">
+  <h3>Teacher: <%= current_user.name %></h3>
+</div>
+<div class="span-10 last teacherhead1">
+  <% if @lesson %>
+  <h3>Lesson: <%=@lesson.lesson.lessonName  %></h3>
+  <% end %>
+</div>
+
+<div class="span-13">
+  <h2>Class List</h2>
+  <% no=0 %>
+  <%@lessonclass.each do | lesson| %>
+  <span class="teacherhead2"> <%= no=no+1 %>&nbsp;<%= lesson.class_detail.classname %> </span>
+  <span><%=link_button_to "Class Performance",{:action=>"performance", :controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}",:classdetailsid=>"#{lesson.class_detail_id}"} %> </span>
+  <span> <%=link_button_to "Delete",url_for(:action=>"remove",:controller=>"teacher_lesson_details",:id=>"#{lesson.id}") %></span> <br />
+  <% end %>
+</div>
+
+
+  <div class="span-12 last">
+  <h2>All Classes</h2>
+ <% form_tag 'add',:method => :get do %>
+    <%=collection_select(:LessonClass, :class_detail_id, @classdetail, :id, :classname ) %>
+    <%= hidden_field_tag "lesson_id",@value%>
+      <% if @lesson %>
+        <%= hidden_field_tag "code","#{@lesson.lesson.lessonName}" %>
+        <% else %>
+        <%= hidden_field_tag "code","O" %>
+      <% end %>
+    <%= hidden_field_tag "teacherid","#{current_user.id}" %>
+    <%= submit_tag "add"%>
+ <% end -%>
+ <%#=link_button_to "Add",url_for(:action=>"add",:id=>"#{classdetails[classdetailsid]}",:lesson_id=>@value,:code=>"#{@lesson.lesson.lessonName}0") %>
+ <h3>
+ <span class="notice2"><%= notice %></span>
+ </h3>
+  <% if @lesson %>
+  <%= link_button_to "Preview Lesson", url_for(:action=>"teacherlesson",:controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}",:current=>"0")%>
+  <%#=link_button_to "Class Performance Page",{:action=>"performance", :controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}"} %>
+  <% end %>
+</div>

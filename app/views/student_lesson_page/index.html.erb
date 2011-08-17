@@ -1,0 +1,21 @@
+<div class="span-25 last">
+  <h3> welcome <%=current_user.name %></h3>
+</div>
+<div class="span-5">
+  <%no=0%>
+  <h3><%=current_user.name %>'s list</h3>
+  <% @studentlesson.each do |student|%>
+  <h3><%=no=no+1 %>&nbsp;<%=link_to "#{student.lesson.lessonName}",{:action=>"lesson",:lessonid=>"#{student.lesson_id}"} %>    <%=link_button_to "Delete",url_for(:action=>"remove",:id=>"#{student.id}") %> </h3><br />
+  <% end %>
+</div>
+<div class="span-10">
+  <h3> Find Lesson use the Code</h3>
+<% form_tag 'find',:method => :get do %>
+    <%=text_field_tag 'code' %>
+    <%= submit_tag "Find"%>
+ <% end -%>
+  <div class="notice2" id="valiedCode" ><%= notice %></div>
+</div>
+<div class="span-10 last">
+</div>
+

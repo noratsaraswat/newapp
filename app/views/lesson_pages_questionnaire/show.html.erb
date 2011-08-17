@@ -1,0 +1,15 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<p>
+  <b>Lessonid:</b>
+  <%= @lesson_page.lesson_id %>
+</p>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_lesson_page_path(@lesson_page) %> |
+<%= link_to 'Back', lesson_pages_path %>
+<%=link_to "Back",{:action=>"new", :controller=>"lesson_page_questionnaire"} %>

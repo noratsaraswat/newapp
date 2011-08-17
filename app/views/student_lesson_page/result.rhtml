@@ -1,0 +1,24 @@
+<div class="span-25 last">
+  <h3> welcome <%=current_user.name %></h3>
+</div>
+<div class="span-5">
+  <%no=0%>
+  <h3><%=current_user.name %>'s list</h3>
+  <% @studentlesson.each do |student|%>
+  <h3><%=no=no+1 %>&nbsp;<%=student.lesson.lessonName %> </h3><br />
+  <% end %>
+</div>
+<div class="span-10" id="info">
+ Instructer: <br /><%=@instructer%> <br /><br />
+ Lesson:<br /><%=@lesson_name%> <br /><br />
+ class:<br /><%=@class_name%> <br /><br />
+ When Student will Click on Add button he will also add class to his data 
+ <%= link_button_to "Add", url_for(:action=>"add",:lessonid=>"#{@lessonid}")%>
+ <%= link_button_to "Back", url_for(:back)%>
+</div>
+<div class="span-10 last">
+</div>
+
+
+
+

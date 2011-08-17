@@ -1,0 +1,29 @@
+<h1>Listing questionnaires</h1>
+
+<table>
+  <tr>
+    
+    <th>Questionnaire Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questionnaires.each do |questionnaire| %>
+  <tr>
+    
+    <td><%= questionnaire.questionnaireName %></td>
+    
+    <td><%= link_to 'Show', questionnaire %></td>
+    <td><%= link_to 'Edit', edit_questionnaire_path(questionnaire) %></td>
+
+    <td><%= link_to 'Destroy', questionnaire, :confirm => 'Associated questions and question associated choices, user answer for this also will be deleated.Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Questionnaire', new_questionnaire_path %>
+<%= link_button_to "New Questionnaire", url_for(new_questionnaire_path)%>
+<%= link_button_to "Back", url_for(:back)%>

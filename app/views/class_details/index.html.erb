@@ -1,0 +1,18 @@
+<h1>class Details</h1>
+<table>
+  <tr>
+    <th>Class Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @class_details.each do |class_detail| %>
+  <tr>
+    <td><%= class_detail.classname %></td>
+    <td><%= link_to 'Edit', edit_class_detail_path(class_detail) %></td>
+    <td><%= link_to 'Destroy', class_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_button_to "Create New Class", url_for(:action=>"new", :controller=>"class_details")%>
+<%= link_button_to "Back to Admin page", url_for(:action=>"index", :controller=>"admin_people")%>

@@ -1,0 +1,11 @@
+<% @quest.choices.nil?%>
+<div class="choices">
+<%# new_or_existing = choice.new_record? ? 'new' : 'existing' %>
+<% prefix = "quest[new_choice_attributes][]" %>
+<%= fields_for prefix ,choice do |choice_form| %>
+<p>
+Task: <%= choice_form.text_field :ChoiceAnswers %>
+<%= link_to_function "remove" , "$(this).up('.choice').remove()" %>
+</p>
+<% end %>
+</div

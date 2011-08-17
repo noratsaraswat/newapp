@@ -1,0 +1,27 @@
+<%= form_for(@student_detail) do |f| %>
+  <% if @student_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student_detail.errors.count, "error") %> prohibited this student_detail from being saved:</h2>
+
+      <ul>
+      <% @student_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<span class="field">
+    <%= f.label "Student" %>&nbsp;&nbsp;
+    <%= f.select(:user_id, Role.where(:name=>"student").collect {|c| [ c.user.name, c.id ] })%>
+  </span>&nbsp;&nbsp;
+<span class="field">
+    <%= f.label "Class" %> &nbsp;&nbsp;
+    <%= f.select(:class_detail_id, ClassDetail.find(:all).collect {|c| [ c.classname, c.id ] })%>
+  </span>
+
+&nbsp;&nbsp;
+  <span class="actions">
+    <%= f.submit "Assign"%>
+  </span>
+<% end %>

@@ -1,0 +1,18 @@
+<div class="span-25 last contentInfoHead">
+  Content data  <br /><%= @content_info.name %>
+</div>
+
+<div class="span-25 last contentInfoHead">
+
+  Path:   <%= @content_info.path %>
+</div>
+
+<div class="span-25 last ">
+<%#= link_to 'Edit', edit_content_info_path(@content_info) %> <br />
+<%#=link_to "Back to add new Content",{:action=>"new", :controller=>"content_infos"} %> <br />
+<%#= link_to 'Back to Lesson Details page', {:action=>"index",:controller=>"developers"} %>
+<%#= link_to 'Back to New Lesson page', {:action=>"new",:controller=>"lessons"} %>
+<%= link_button_to "Lesson Details page", url_for(:action=>"index", :controller=>"developers")%>
+<%= link_button_to "Edit", url_for(:action=>"edit")%>
+<%=link_button_to "List", url_for(:action=>"index", :controller=>"content_infos")%>
+</div>

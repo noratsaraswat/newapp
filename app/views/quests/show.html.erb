@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>Question:</b>
+  <%= @quest.question %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @quest.image %>
+</p>
+
+
+<%= link_to 'Edit', edit_quest_path(@quest) %> |
+<%= link_to 'Back', :action=>"new" %>

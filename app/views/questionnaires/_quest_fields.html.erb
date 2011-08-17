@@ -1,0 +1,13 @@
+<p>
+  <%= f.label :question, "Question" %><br />
+  <%= f.text_field :question, :rows => 3 %><br />
+  <div class="field">
+    <%= f.label "Select Image" %><br />
+    <%= f.file_field :image %>
+  </div>
+  
+</p>
+<% f.fields_for :choices do |builder| %>
+  <%= render 'choice_fields', :f => builder %>
+<% end %>
+<%#= link_to 'List of all Questionaris', :controller=>"questionnaires",:action=>"i"%>

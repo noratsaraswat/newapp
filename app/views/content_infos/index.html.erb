@@ -1,0 +1,26 @@
+<h1>Listing content Information    </h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @content_infos.each do |content_info| %>
+  <tr>
+    <td><%= content_info.name %></td>
+    <td><%= content_info.path %></td>
+    <td><%= link_to 'Show', content_info %></td>
+    <td><%= link_to 'Edit', edit_content_info_path(content_info) %></td>
+    <td><%= link_to 'Destroy', content_info, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Content info', new_content_info_path %>
+<%=link_button_to "Create New Content", url_for(new_content_info_path)%>
+<%=link_button_to "Back", url_for(:back)%>

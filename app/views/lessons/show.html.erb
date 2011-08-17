@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Lesson Name:</b>
+  <%= @lesson.lessonName %>
+</p>
+
+
+<%#= link_to 'Edit', edit_lesson_path(@lesson) %>
+<%#=link_to "Back",{:action=>"new", :controller=>"lessons"} %>
+
+<%= link_button_to "Edit", url_for(edit_lesson_path(@lesson))%> &nbsp; &nbsp;
+<%= link_button_to "Lesson Details", url_for(:action=>"index",:controller=>"developers")%>&nbsp; &nbsp;
+<%= link_button_to "Lesson Name List", url_for(:action=>"index",:controller=>"lessons")%>

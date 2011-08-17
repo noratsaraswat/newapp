@@ -1,0 +1,9 @@
+<%# if @saved==true %>
+<h1>correct Answers = <%=@correct %> </h1>
+
+<%# else %>
+<!--<h1> Already answered this Questionnaire</h1>-->
+<%# end %>
+
+
+<%=link_button_to "Back",url_for(:back) %>

@@ -1,0 +1,39 @@
+<!-- <%#= form_for(@questionnaire) do |f| %>
+  <%# if @questionnaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%#= pluralize(@questionnaire.errors.count, "error") %> prohibited this questionnaire from being saved:</h2>
+
+      <ul>
+      <%# @questionnaire.errors.full_messages.each do |msg| %>
+        <li><%#= msg %></li>
+      <%# end %>
+      </ul>
+    </div>
+  <%# end %>
+
+  
+  <div class="field">
+    <%#= f.label "Enter Questionnaire Name" %><br />
+    <%#= f.text_field :questionnaireName %>
+  </div>
+  
+  <div class="actions">
+    <%#= f.submit "Create Questionnaire name"%>
+  </div>
+<%# end %> -->
+<!-- code for new questionari -->
+<% form_for @questionnaire do |f| %>
+  <%#= f.error_messages %>
+  <p>
+    <%= f.label :questionnaireName, "Questionaries Name" %><br />
+    <%= f.text_field :questionnaireName %>
+  </p>
+  
+  <%= f.fields_for :quests do |builder| %>
+    <%= render "quest_fields", :f => builder %>
+  <% end %>
+  
+  
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+<%= link_to 'List of all Questionaris', :controller=>"questionnaires",:action=>"index"%>

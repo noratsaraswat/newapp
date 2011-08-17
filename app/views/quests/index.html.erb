@@ -1,0 +1,26 @@
+<h1>Listing Questions</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quests.each do |quest| %>
+  <tr>
+    <td><%= quest.question %></td>
+    <td><%= quest.image %></td>
+    <td></td>
+    <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
+    <td><%= link_to 'Destroy', quest, :confirm => 'Choice Answers also deleted. Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Quest', new_quest_path %>
+<%=link_button_to "New Question",url_for(:action=>"new",:controller=>"questionnaires")%>
+<%=link_button_to "Back",url_for(:back)%>

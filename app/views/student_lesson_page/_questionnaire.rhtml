@@ -1,0 +1,42 @@
+
+<%  @questionnaire=Questionnaire.find(:first,:conditions=>{:id=>@questionnaireid}) %>
+<h3>Questionnaire  <%=@questionnaire.questionnaireName  %> </h3>
+
+<% form_tag 'answers',:method => :get do %>
+<table>
+  <tbody>
+    <%k=0%>
+    <%@questionnaire.quests.each do |question| %>
+    <%= hidden_field_tag "questionnaire_id",question.questionnaire_id%>
+    <tr>
+      <td>
+      <%#=  k=k+1 %> &nbsp;<%#=link_to "#{question.question}",{:action=>"edit",:controller=>"quests",:id=>"#{question.id}"} %>
+      <h3> <%=  k=k+1 %> &nbsp;<%=question.question %></h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="questionImage">
+          <%if question.image %>
+            <%=question.image %>
+          <%end%>
+        </div>
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <%j=0%>
+        <% question.choices.each do |choice| %>
+              <%=j=j+1 %>&nbsp; <%=label_tag "#{choice.ChoiceAnswers}" %> <%=check_box_tag("ans[]","#{choice.id}") %>
+        <%end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%if @submitbutton!=0 %>
+<%= submit_tag "Submit answers"%>
+<%end%>
+&nbsp; <br />
+&nbsp; <br />
+ <% end %>

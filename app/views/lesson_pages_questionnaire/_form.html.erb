@@ -1,0 +1,28 @@
+<%= form_for(@lesson_page) do |f| %>
+  <% if @lesson_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lesson_page.errors.count, "error") %> prohibited this lesson_page from being saved:</h2>
+
+      <ul>
+      <% @lesson_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Select Lesson Name" %><br />
+    <%= f.select(:lesson_id,  Lesson.find(:all).collect {|c| [ c.lessonName, c.id ] })%>
+
+  </div>
+    <span class="field">
+    <%= f.label "Questionnaire Name" %><br />
+    <%= f.select(:questionnaire_id,Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
+   </span>
+   
+  <span class="actions">
+    <%= f.submit "Add Questionnaire" %>
+  </span>
+<% end %>
+

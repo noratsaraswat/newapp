@@ -1,0 +1,40 @@
+
+<div class="span-25 last"  >
+  <h3> welcome <%=current_user.name %></h3>
+</div>
+
+<div class="span-15">
+  <h3><%=current_user.name %>'s List </h3>
+  <%  @teacherlesson=TeacherLesson.find(:all,:conditions=> {:user_id=>current_user.id}) %>
+    <%no=0 %>
+  <% @teacherlesson.each do | mylist | %>
+    <%= no=no+1 %>
+    <%= link_to"#{mylist.lesson.lessonName}",{:action=>"index",:controller=>"teacher_lesson_details",:id=>"#{mylist.lesson_id}"} %> &nbsp; <%=link_button_to "Delete",url_for(:action=>"remove",:controller=>"teacher_lesson",:id=>"#{mylist.id}") %><br />
+  <% end %>
+
+</div>
+<div class="span-10 last">
+  <h3>Available Lessons</h3>
+
+<%@lesson=Lesson.find(:all)%>
+<%no=0%>
+<% @lesson.each do | less| %>
+  <span><%=no=no+1%> &nbsp; <%=less.lessonName  %></span> &nbsp; <%=link_button_to "Add",url_for(:action=>"add",:controller=>"teacher_lesson",:id=>"#{less.id}") %><br />
+<% end %>
+
+</div>
+<div class="span-25 last">
+  <div class="span-10">
+    &nbsp;
+  </div>
+  <div class="span-5">
+    <%#=link_to "Teacher Lesson Page",{:action=>"index", :controller=>"teacher_lesson_details"} %>
+    <%#=link_to "Class Performance Page",{:action=>"index", :controller=>"class_performance_page"} %>
+    <%#= link_to 'New Teacher detail', new_teacher_detail_path %>
+  </div>
+  <div class="span-10 last">
+    &nbsp;
+  </div>
+
+
+  </div>

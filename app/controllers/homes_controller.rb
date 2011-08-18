@@ -1,11 +1,30 @@
 class HomesController < ApplicationController
-  before_filter :authenticate_user!,:except=>[:index]
+  before_filter :authenticate_user!
   load_and_authorize_resource :except=> 'index'
    
   # GET /homes
   # GET /homes.xml
   def index
      #@homes = Home.all
+     
+    if current_user.role
+      if current_user.role.name=='admin'
+        redirect_to(:controller => "admin_people",:action => "index")
+      elsif current_user.role.name=='deve'
+        redirect_to(:controller => "developers",:action =>"index")
+      elsif current_user.role.name=='teacher'
+        redirect_to(:controller => "teacher_details",:action => "index")
+      elsif current_user.role.name=='student'
+        redirect_to(:controller => "student_lesson_page",:action => "index")  
+      end  
+      return
+    else
+    flash[:notice]="Role not Assigned"
+    #redirect_to(:controller => "homes",:action => "index")  
+    
+    end 
+   
+    
      respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @homes }

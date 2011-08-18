@@ -47,7 +47,6 @@
             <%@ques.each do | que | %>
 
                      <%@correctanwers=Choice.where(:quest_id=>"#{que.id}",:answer=>true)%>
-                     <%#@correctanwerssize=@correctanwers.size%>
                      <%@answers=Answer.where(:user_id=>"#{student.user_id}",:questionnaire_id=>"#{que.questionnaire_id}")%>
                          <% if @answers.empty? %>
                             <td> -</td>
@@ -125,7 +124,7 @@
   &nbsp;
 </div>
 <div class="span-5 last">
-  <%#=link_button_to "Export", url_for(:action=>"export",:lesson_id=>@lessonid,:class_detail_id=>@classdetailsid)%>
+  <%=link_button_to "Export", url_for(:action=>"export",:lesson_id=>@lessonid,:class_detail_id=>@classdetailsid)%>
 </div>
 <div class="span-25 last">
   - &nbsp; Not Attented,  &radic; &nbsp; Correct Answer, &Chi; &nbsp; wrong Answer

@@ -19,16 +19,10 @@ Class View
   <span> <%=link_button_to "Delete",url_for(:action=>"remove",:controller=>"teacher_lesson_details",:id=>"#{lesson.id}") %></span> <br />
   <% end %>
 </div>
-
-
   <div class="span-12 last">
   <h2>All Classes</h2>
-  <% @classdetails = ClassDetail.new%>
  <% form_tag 'add',:method => :get do %>
-    <%=text_field_tag(:classname) %>
-    <%#= hidden_field_tag :class_detail_id,@classdetails%>
-    <%= hidden_field_tag :LessonClass %>
-    <%#= hidden_field_tag "lesson_id",@value%>
+    <%=collection_select(:LessonClass, :class_detail_id, @classdetail, :id, :classname ) %>
     <%= hidden_field_tag "lesson_id",@value%>
       <% if @lesson %>
         <%= hidden_field_tag "code","#{@lesson.lesson.lessonName}" %>

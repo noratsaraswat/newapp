@@ -23,8 +23,12 @@ Class View
 
   <div class="span-12 last">
   <h2>All Classes</h2>
+  <% @classdetails = ClassDetail.new%>
  <% form_tag 'add',:method => :get do %>
-    <%=collection_select(:LessonClass, :class_detail_id, @classdetail, :id, :classname ) %>
+    <%=text_field_tag(:classname) %>
+    <%#= hidden_field_tag :class_detail_id,@classdetails%>
+    <%= hidden_field_tag :LessonClass %>
+    <%#= hidden_field_tag "lesson_id",@value%>
     <%= hidden_field_tag "lesson_id",@value%>
       <% if @lesson %>
         <%= hidden_field_tag "code","#{@lesson.lesson.lessonName}" %>

@@ -8,6 +8,7 @@ gem 'rails', '3.0.8'
 gem 'mysql2', '< 0.3'
 gem 'devise'
 gem 'cancan'
+gem 'admin_data'
 group :development, :test do
 gem 'rspec-rails'
 end

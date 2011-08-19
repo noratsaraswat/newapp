@@ -44,7 +44,7 @@ Educrasy::Application.routes.draw do
   get "student_lesson_page/answers"
   get "student_lesson_page/performance"
    get "student_lesson_page/thanks"
-
+ gets  "student_lesson_page/export"
   resources :student_details
 
   get "class_performance_page/index"

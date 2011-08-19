@@ -5,5 +5,4 @@ class Questionnaire < ActiveRecord::Base
   validates(:questionnaireName, :presence => true)
   
   accepts_nested_attributes_for :quests, :reject_if => lambda { |a| a[:question].blank? }, :allow_destroy => true
-  
  end

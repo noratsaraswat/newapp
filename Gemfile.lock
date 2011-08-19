@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.8)
       activesupport (= 3.0.8)
     activesupport (3.0.8)
+    admin_data (1.1.13)
+      will_paginate (= 3.0.pre2)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -97,5 +99,4 @@ DEPENDENCIES
   mysql2 (< 0.3)
   rails (= 3.0.8)
   rspec-rails
-
 

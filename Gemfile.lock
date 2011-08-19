@@ -32,6 +32,7 @@ GEM
       will_paginate (= 3.0.pre2)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
+    bcrypt-ruby (2.1.4-x86-mingw32)
     builder (2.1.2)
     cancan (1.6.5)
     devise (1.3.4)
@@ -48,7 +49,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mysql2 (0.2.7)
+    mysql (2.8.1-x86-mingw32)
     orm_adapter (0.0.5)
     polyglot (0.3.1)
     rack (1.2.3)
@@ -89,14 +90,16 @@ GEM
     tzinfo (0.3.27)
     warden (1.0.4)
       rack (>= 1.0)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
+  admin_data
   cancan
   devise
-  mysql2 (< 0.3)
+  mysql (= 2.8.1)
   rails (= 3.0.8)
   rspec-rails
-

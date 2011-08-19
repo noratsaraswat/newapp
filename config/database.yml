@@ -9,7 +9,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: Educrasy_new_development
+  database: Educrasy_development
   pool: 5
   username: root
   password: cochin
@@ -22,7 +22,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: Educrasy_new_test
+  database: Educrasy_test
   pool: 5
   username: root
   password: cochin
@@ -32,7 +32,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: Educrasy_new_production
+  database: Educrasy_production
   pool: 5
   username: root
   password: cochin

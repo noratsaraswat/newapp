@@ -22,18 +22,19 @@
   </div>
 <%# end %> -->
 <!-- code for new questionari -->
-<% form_for @questionnaire do |f| %>
+
+<% form_for @questionnaire,:html =>{:onkeydown => "return event.keyCode!=13" } do |f| %>
   <%#= f.error_messages %>
   <p>
     <%= f.label :questionnaireName, "Questionaries Name" %><br />
     <%= f.text_field :questionnaireName %>
   </p>
   
-  <%= f.fields_for :quests do |builder| %>
+  <%= f.fields_for :quests ,:onSubmit => "return false" do |builder| %>
     <%= render "quest_fields", :f => builder %>
   <% end %>
   
   
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Submit"%></p>
 <% end %>
 <%= link_to 'List of all Questionaris', :controller=>"questionnaires",:action=>"index"%>

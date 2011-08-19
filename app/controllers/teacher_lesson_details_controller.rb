@@ -1,4 +1,5 @@
 class TeacherLessonDetailsController < ApplicationController
+ 
   def index
     @value=params[:id]
     @lessonclass= LessonClass.find(:all,:conditions=>{:lesson_id=>@value})
@@ -8,15 +9,9 @@ class TeacherLessonDetailsController < ApplicationController
   def add
     @lessonclass=LessonClass.new
     #@id=params[:id]
-    @class_detail = ClassDetail.new
-    @class_detail.classname=(params[:classname])
-    @class_detail.save
-    @id = @class_detail.id
-    #@id = [:class_detail_id]
-    #@id[] = @id << params[:LessonClass]
+    @id = params[:LessonClass][:class_detail_id]
     @lesson_id=params[:lesson_id]
     @code=params[:code]
-  # @classname = ClassDetail.new(params[:classname])
     @classname=ClassDetail.find(@id)
     vall="#{@code}-#{@classname.classname}"
     @lessonclass.class_detail_id=@id
@@ -38,5 +33,4 @@ class TeacherLessonDetailsController < ApplicationController
     @lessonclass.destroy
      redirect_to(:controller=>"teacher_lesson_details",:action =>"index",:id=>"#{@lesson_id}")
   end
-  
 end

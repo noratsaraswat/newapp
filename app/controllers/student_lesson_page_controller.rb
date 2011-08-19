@@ -106,7 +106,8 @@ class StudentLessonPageController < ApplicationController
       @studentlesson.finished=@current
       @studentlesson.save
     end
-    redirect_to(:action=>"lesson",:lessonid=>"#{@lesson_id}")
+    render 'thank_you'
+  #  redirect_to(:action=>"lesson",:lessonid=>"#{@lesson_id}")
     else
     redirect_to(:action=>"teacherlesson",:lessonid=>"#{@lesson_id}",:current=>"#{@current}")
     end

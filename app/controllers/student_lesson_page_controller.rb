@@ -107,8 +107,8 @@ class StudentLessonPageController < ApplicationController
       @studentlesson.save
     end
         if @val==@val2
-         redirect_to(:action=>"thanks") 
-        else 
+         redirect_to(:action=>"thanks")
+        else
         redirect_to(:action=>"lesson",:lessonid=>"#{@lesson_id}")
         end
     else
@@ -116,7 +116,7 @@ class StudentLessonPageController < ApplicationController
     end
    end
    def thank_you
-    
+
    end
    def prevlesson
      @lesson_id=params[:lessonid]
@@ -248,29 +248,29 @@ class StudentLessonPageController < ApplicationController
 
    def export
       performancecsv=Array.new
-      verticalright=Array.new 
-      verticalwrong=Array.new 
+      verticalright=Array.new
+      verticalwrong=Array.new
       @lessonclass=LessonClass.find(:first,:conditions=>{:lesson_id=>"#{params[:lesson_id]}",:class_detail_id=>"#{params[:class_detail_id]}"} )
       @studentdetails=StudentDetail.where(:class_detail_id=>"#{params[:class_detail_id]}")
       @lessonclasslessonid=@lessonclass.lesson_id
       @lessonquestions=LessonPage.find_by_sql("select * from lesson_pages where lesson_id=#{@lessonclasslessonid} and questionnaire_id is not null")
-     
+
      FasterCSV.open("./file.csv", "w") do |csv|
-       
-           @studentdetails.each do | student | 
-                wrong=0 
+
+           @studentdetails.each do | student |
+                wrong=0
                 cor=0
-                m=0 
+                m=0
                 performancecsv.push("#{student.user.name}")
                 @lessonquestions.each do | quest|
-                @ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}")  
-                      @ques.each do | que | 
+                @ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}")
+                      @ques.each do | que |
                           @correctanwers=Choice.where(:quest_id=>"#{que.id}",:answer=>true)
                           @answers=Answer.where(:user_id=>"#{student.user_id}",:questionnaire_id=>"#{que.questionnaire_id}")
-                          if @answers.empty? 
+                          if @answers.empty?
                               performancecsv.push("-")
                           else
-                              corr=0 
+                              corr=0
                               @correctanwers.each do |correct |
                                   @answers.each do | ans|
                                        if correct.id==ans.choice_id
@@ -278,36 +278,36 @@ class StudentLessonPageController < ApplicationController
     end
 end
                               end
-                            
+
                                 if corr==Integer(@correctanwers.size)
                                     performancecsv.push('c')
                                     cor=cor+1
                                       if verticalright[m]
-                                      else 
-                                        verticalright[m]=0 
-                                      end 
+                                      else
+                                        verticalright[m]=0
+                                      end
                                       verticalright[m]=Integer(verticalright[m])+1
                                 else
-                                       performancecsv.push('w') 
-                                       wrong=wrong+1 
+                                       performancecsv.push('w')
+                                       wrong=wrong+1
                                          if verticalwrong[m]
                                          else
-                                          verticalwrong[m]=0 
-                                          end 
+                                          verticalwrong[m]=0
+                                          end
                                           verticalwrong[m]=Integer(verticalwrong[m])+1
                                 end
-                                m=m+1    
+                                m=m+1
                           end
 
-                      end  
-                      
-                      if cor> 0 
-                        performancecsv.push("#{(cor*100)/(cor+wrong)}%") 
+                      end
+
+                      if cor> 0
+                        performancecsv.push("#{(cor*100)/(cor+wrong)}%")
                      elsif cor==0 and wrong==0
                         performancecsv.push("-")
                      elsif cor==0
-                       performancecsv.push("0%")   
-                     end 
+                       performancecsv.push("0%")
+                     end
                 end
              csv << performancecsv
              performancecsv.clear
@@ -315,27 +315,28 @@ end
            performancecsv.push("Performance")
            i=0
           @lessonquestions.each do | quest|
-          @ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}") 
+          @ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}")
           @size=@ques.size
-          num=1  
-                   
-          while num<=@size 
+          num=1
+
+          while num<=@size
              if ((verticalright[i]).to_i) > 0
                performancecsv.push("#{((verticalright[i]).to_i*100)/((verticalright[i]).to_i + (verticalwrong[i]).to_i)}%")
              elsif (verticalright[i]).to_i==0 and (verticalwrong[i]).to_i==0
-               performancecsv.push("-") 
+               performancecsv.push("-")
              elsif (verticalright[i]).to_i==0
-               performancecsv.push("0%") 
-             end 
+               performancecsv.push("0%")
+             end
               num=num+1
               i=i+1
           end
         end
        csv << performancecsv
-   
-     flash[:notice]="CSV File file.csv Created" 
+
+     flash[:notice]="CSV File file.csv Created"
      end
-   
+
       redirect_to(:action=>"performance",:lessonid=>"#{params[:lesson_id]}",:classdetailsid=>"#{params[:class_detail_id]}")
     end
 end
+

@@ -4,8 +4,8 @@ gem 'rails', '3.0.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'mysql', '2.8.1'
 
-gem 'mysql2', '< 0.3'
 gem 'devise'
 gem 'cancan'
 group :development, :test do
@@ -34,3 +34,4 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+

@@ -28,9 +28,10 @@ GEM
       activemodel (= 3.0.8)
       activesupport (= 3.0.8)
     activesupport (3.0.8)
+    admin_data (1.1.13)
+      will_paginate (= 3.0.pre2)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
-    bcrypt-ruby (2.1.4-x86-mingw32)
     builder (2.1.2)
     cancan (1.6.5)
     devise (1.3.4)
@@ -40,7 +41,6 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    fastercsv (1.5.4)
     i18n (0.5.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -48,8 +48,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mysql (2.8.1)
-    mysql (2.8.1-x86-mingw32)
+    mysql2 (0.2.7)
     orm_adapter (0.0.5)
     polyglot (0.3.1)
     rack (1.2.3)
@@ -93,12 +92,11 @@ GEM
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   cancan
   devise
-  fastercsv
-  mysql (= 2.8.1)
+  mysql2 (< 0.3)
   rails (= 3.0.8)
   rspec-rails
+

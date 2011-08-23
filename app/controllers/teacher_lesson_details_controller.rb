@@ -1,7 +1,8 @@
 class TeacherLessonDetailsController < ApplicationController
   def index
+    @teacherid = current_user.id
     @value=params[:id]
-    @lessonclass= LessonClass.find(:all,:conditions=>{:lesson_id=>@value})
+    @lessonclass= LessonClass.find(:all,:conditions=>{:lesson_id=>@value,:teacherid=>@teacherid})
     @lesson= LessonClass.find(:first,:conditions=>{:lesson_id=>@value})
     @classdetail=ClassDetail.find(:all)
    end
@@ -38,5 +39,6 @@ class TeacherLessonDetailsController < ApplicationController
     @lessonclass.destroy
      redirect_to(:controller=>"teacher_lesson_details",:action =>"index",:id=>"#{@lesson_id}")
   end
-  
+
 end
+
